@@ -17,8 +17,8 @@ public class Inquire {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @Column(nullable = false, length = 50)
     private String title;
