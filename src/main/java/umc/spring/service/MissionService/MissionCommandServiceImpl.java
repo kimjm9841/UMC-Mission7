@@ -6,6 +6,7 @@ import umc.spring.apiPayload.code.status.ErrorStatus;
 import umc.spring.apiPayload.exception.handler.MemberHandler;
 import umc.spring.converter.MissionConverter;
 import umc.spring.domain.Mission;
+import umc.spring.domain.enums.MissionStatus;
 import umc.spring.repository.MemberRepository;
 import umc.spring.repository.MissionRepository;
 import umc.spring.repository.RestaurantRepository;
@@ -32,5 +33,20 @@ public class MissionCommandServiceImpl implements MissionCommandService {
         newMission.setMember(memberRepository.findById(request.getMember()).orElseThrow(() -> new MemberHandler(ErrorStatus.MEMBER_NOT_FOUND)));
 
         return missionRepository.save(newMission);
+    }
+
+    @Override
+    @Transactional
+    public Mission challengeMission(MissionRequestDTO.challengeDTO request) {
+        Mission mission = missionRepository.findById(request.getId()).orElseThrow(() -> new MemberHandler(ErrorStatus.MISSION_NOT_FOUND));
+        mission.setStatus(MissionStatus.CHALLENGING);
+
+        return missionRepository.save(mission);
+    }
+
+    @Override
+    public boolean isPossible(Long value) {
+        Mission mission = missionRepository.findById(value).orElseThrow(() -> new MemberHandler(ErrorStatus.MISSION_NOT_FOUND));
+        return mission.getStatus() == MissionStatus.POSSIBLE;
     }
 }

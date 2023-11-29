@@ -2,6 +2,7 @@ package umc.spring.web.dto;
 
 import lombok.Getter;
 import umc.spring.validation.annotation.ExistRestaurant;
+import umc.spring.validation.annotation.PossibleMission;
 
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
@@ -22,5 +23,11 @@ public class MissionRequestDTO {
         Integer point;
         @Future
         LocalDate deadline;
+    }
+
+    @Getter
+    public static class challengeDTO {
+        @PossibleMission
+        Long id;
     }
 }

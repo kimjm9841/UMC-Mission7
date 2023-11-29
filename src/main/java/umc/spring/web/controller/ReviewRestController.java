@@ -22,7 +22,7 @@ public class ReviewRestController {
     private final ReviewCommandService reviewCommandService;
 
     @PostMapping("/")
-    public ApiResponse<ReviewResponseDTO.writeResultDTO> add(@RequestBody @Valid ReviewRequestDTO.writeDTO request){
+    public ApiResponse<ReviewResponseDTO.writeResultDTO> write(@RequestBody @Valid ReviewRequestDTO.writeDTO request){
         Review review = reviewCommandService.writeReview(request);
         return ApiResponse.onSuccess(ReviewConverter.toWriteResultDTO(review));
     }

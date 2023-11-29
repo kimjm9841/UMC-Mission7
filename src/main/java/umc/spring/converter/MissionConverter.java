@@ -15,6 +15,13 @@ public class MissionConverter {
                 .build();
     }
 
+    public static MissionResponseDTO.challengeResultDTO toChallengeResultDTO(Mission mission){
+        return MissionResponseDTO.challengeResultDTO.builder()
+                .missionId(mission.getId())
+                .updatedAt(LocalDateTime.now())
+                .build();
+    }
+
     public static Mission toMission(MissionRequestDTO.addDTO request){
         return Mission.builder()
                 .amount(request.getAmount())
