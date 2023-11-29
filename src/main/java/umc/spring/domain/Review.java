@@ -30,4 +30,12 @@ public class Review {
 
     @Column(length = 200)
     private String image;
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }
