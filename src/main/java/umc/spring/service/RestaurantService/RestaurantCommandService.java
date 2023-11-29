@@ -8,5 +8,5 @@ import javax.transaction.Transactional;
 public interface RestaurantCommandService {
 
     @Transactional
-    Restaurant addRestaurant(RestaurantRequestDTO.addDTO request);
+    Restaurant addRestaurant(RestaurantRequestDTO.registerDTO request);
 }

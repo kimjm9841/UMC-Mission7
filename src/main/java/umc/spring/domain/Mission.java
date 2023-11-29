@@ -43,4 +43,12 @@ public class Mission extends BaseEntity {
     private Integer point;
 
     private LocalDate deadline;
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }

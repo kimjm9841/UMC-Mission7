@@ -22,7 +22,7 @@ public class RestaurantRestController {
     private final RestaurantCommandService restaurantCommandService;
 
     @PostMapping("/")
-    public ApiResponse<RestaurantResponseDTO.addResultDTO> add(@RequestBody @Valid RestaurantRequestDTO.addDTO request){
+    public ApiResponse<RestaurantResponseDTO.registerResultDTO> add(@RequestBody @Valid RestaurantRequestDTO.registerDTO request){
         Restaurant restaurant = restaurantCommandService.addRestaurant(request);
         return ApiResponse.onSuccess(RestaurantConverter.toAddResultDTO(restaurant));
     }

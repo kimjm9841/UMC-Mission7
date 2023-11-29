@@ -26,7 +26,7 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService {
 
     @Override
     @Transactional
-    public Restaurant addRestaurant(RestaurantRequestDTO.addDTO request) {
+    public Restaurant addRestaurant(RestaurantRequestDTO.registerDTO request) {
 
         Restaurant newRestaurant = RestaurantConverter.toRestaurant(request);
 

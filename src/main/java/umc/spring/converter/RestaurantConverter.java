@@ -8,14 +8,14 @@ import java.time.LocalDateTime;
 
 public class RestaurantConverter {
 
-    public static RestaurantResponseDTO.addResultDTO toAddResultDTO(Restaurant restaurant){
-        return RestaurantResponseDTO.addResultDTO.builder()
+    public static RestaurantResponseDTO.registerResultDTO toAddResultDTO(Restaurant restaurant){
+        return RestaurantResponseDTO.registerResultDTO.builder()
                 .restaurantId(restaurant.getId())
                 .createdAt(LocalDateTime.now())
                 .build();
     }
 
-    public static Restaurant toRestaurant(RestaurantRequestDTO.addDTO request){
+    public static Restaurant toRestaurant(RestaurantRequestDTO.registerDTO request){
         return Restaurant.builder()
                 .name(request.getName())
                 .address(request.getAddress())

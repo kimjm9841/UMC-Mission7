@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 public class RestaurantRequestDTO {
 
     @Getter
-    public static class addDTO {
+    public static class registerDTO {
         @NotNull
         Long location;
         @NotNull
