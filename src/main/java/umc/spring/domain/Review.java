@@ -3,6 +3,7 @@ package umc.spring.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -30,6 +31,8 @@ public class Review {
 
     @Column(length = 200)
     private String image;
+
+    private LocalDate createdAt;
 
     public void setRestaurant(Restaurant restaurant) {
         this.restaurant = restaurant;
