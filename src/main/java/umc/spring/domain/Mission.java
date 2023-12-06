@@ -1,6 +1,8 @@
 package umc.spring.domain;
 
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.enums.MissionStatus;
 
@@ -9,6 +11,8 @@ import java.time.LocalDate;
 
 @Entity
 @Getter
+@DynamicUpdate
+@DynamicInsert
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -43,4 +47,16 @@ public class Mission extends BaseEntity {
     private Integer point;
 
     private LocalDate deadline;
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public void setStatus(MissionStatus status) {
+        this.status = status;
+    }
 }
