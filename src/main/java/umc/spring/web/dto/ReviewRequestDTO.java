@@ -23,4 +23,5 @@ public class ReviewRequestDTO {
         @Size(max = 200)
         String image;
     }
+
 }
