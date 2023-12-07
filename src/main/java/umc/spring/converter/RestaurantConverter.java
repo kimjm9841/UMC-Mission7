@@ -1,6 +1,7 @@
 package umc.spring.converter;
 
 import org.springframework.data.domain.Page;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Restaurant;
 import umc.spring.domain.Review;
 import umc.spring.web.dto.RestaurantRequestDTO;
@@ -46,6 +47,29 @@ public class RestaurantConverter {
                 .totalElements(reviewList.getTotalElements())
                 .listSize(reviewPreViewDTOList.size())
                 .reviewList(reviewPreViewDTOList)
+                .build();
+    }
+
+    public static RestaurantResponseDTO.MissionPreViewDTO missionPreViewDTO(Mission mission){
+        return RestaurantResponseDTO.MissionPreViewDTO.builder()
+                .ownerNickname(mission.getMember().getName())
+                .status(mission.getStatus())
+                .amount(mission.getAmount())
+                .point(mission.getPoint())
+                .deadline(mission.getDeadline())
+                .build();
+    }
+    public static RestaurantResponseDTO.MissionPreViewListDTO missionPreViewListDTO(Page<Mission> missionList){
+        List<RestaurantResponseDTO.MissionPreViewDTO> missionPreViewDTOList = missionList.stream()
+                .map(RestaurantConverter::missionPreViewDTO).collect(Collectors.toList());
+
+        return RestaurantResponseDTO.MissionPreViewListDTO.builder()
+                .isLast(missionList.isLast())
+                .isFirst(missionList.isFirst())
+                .totalPage(missionList.getTotalPages())
+                .totalElements(missionList.getTotalElements())
+                .listSize(missionPreViewDTOList.size())
+                .missionList(missionPreViewDTOList)
                 .build();
     }
 }
