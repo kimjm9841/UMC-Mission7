@@ -19,7 +19,7 @@ public class PageCheckValidator implements ConstraintValidator<CheckPage, Intege
 
     @Override
     public boolean isValid(Integer page, ConstraintValidatorContext context) {
-        boolean isValid = (page > 0);
+        boolean isValid = (page >= 0);
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();
