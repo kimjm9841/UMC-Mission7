@@ -35,8 +35,4 @@ public class ReviewCommandServiceImpl implements ReviewCommandService{
         return reviewRepository.save(newReview);
     }
 
-    @Override
-    public boolean existsById(Long value) {
-        return restaurantRepository.existsById(value);
-    }
 }

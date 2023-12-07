@@ -9,5 +9,4 @@ public interface ReviewCommandService {
     @Transactional
     Review writeReview(ReviewRequestDTO.writeDTO request);
 
-    boolean existsById(Long value);
 }

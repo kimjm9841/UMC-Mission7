@@ -35,4 +35,9 @@ public class RestaurantCommandServiceImpl implements RestaurantCommandService {
 
         return restaurantRepository.save(newRestaurant);
     }
+
+    @Override
+    public boolean existsById(Long value) {
+        return restaurantRepository.existsById(value);
+    }
 }

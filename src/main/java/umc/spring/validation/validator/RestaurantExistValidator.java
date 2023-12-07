@@ -3,6 +3,7 @@ package umc.spring.validation.validator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import umc.spring.apiPayload.code.status.ErrorStatus;
+import umc.spring.service.RestaurantService.RestaurantCommandService;
 import umc.spring.service.ReviewService.ReviewCommandService;
 import umc.spring.validation.annotation.ExistRestaurant;
 
@@ -13,7 +14,7 @@ import javax.validation.ConstraintValidatorContext;
 @RequiredArgsConstructor
 public class RestaurantExistValidator implements ConstraintValidator<ExistRestaurant, Long> {
 
-    private final ReviewCommandService reviewCommandService;
+    private final RestaurantCommandService restaurantCommandService;
 
     @Override
     public void initialize(ExistRestaurant constraintAnnotation) {
@@ -22,7 +23,7 @@ public class RestaurantExistValidator implements ConstraintValidator<ExistRestau
 
     @Override
     public boolean isValid(Long value, ConstraintValidatorContext context) {
-        boolean isValid = reviewCommandService.existsById(value);
+        boolean isValid = restaurantCommandService.existsById(value);
 
         if (!isValid) {
             context.disableDefaultConstraintViolation();

@@ -9,4 +9,6 @@ public interface RestaurantCommandService {
 
     @Transactional
     Restaurant addRestaurant(RestaurantRequestDTO.registerDTO request);
+
+    boolean existsById(Long value);
 }
