@@ -12,5 +12,8 @@ public interface MissionCommandService {
     @Transactional
     Mission challengeMission(MissionRequestDTO.challengeDTO request);
 
+    @Transactional
+    Mission completeMission(MissionRequestDTO.completeDTO request);
+
     boolean isPossible(Long value);
 }

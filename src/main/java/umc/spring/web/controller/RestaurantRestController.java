@@ -33,6 +33,7 @@ public class RestaurantRestController {
     private final RestaurantQueryService restaurantQueryService;
 
     @PostMapping("/")
+    @Operation(summary = "가게 추가 API",description = "특정 지역에 새로운 가게를 추가하는 API입니다.")
     public ApiResponse<RestaurantResponseDTO.registerResultDTO> register(@RequestBody @Valid RestaurantRequestDTO.registerDTO request){
         Restaurant restaurant = restaurantCommandService.addRestaurant(request);
         return ApiResponse.onSuccess(RestaurantConverter.toAddResultDTO(restaurant));

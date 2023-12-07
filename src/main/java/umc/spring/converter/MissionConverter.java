@@ -22,6 +22,13 @@ public class MissionConverter {
                 .build();
     }
 
+    public static MissionResponseDTO.completeResultDTO toCompleteResultDTO(Mission mission){
+        return MissionResponseDTO.completeResultDTO.builder()
+                .missionId(mission.getId())
+                .updatedAt(LocalDateTime.now())
+                .build();
+    }
+
     public static Mission toMission(MissionRequestDTO.addDTO request){
         return Mission.builder()
                 .amount(request.getAmount())

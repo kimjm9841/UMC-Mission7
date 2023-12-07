@@ -30,4 +30,10 @@ public class MissionRequestDTO {
         @PossibleMission
         Long id;
     }
+
+    @Getter
+    public static class completeDTO {
+        @NotNull
+        Long id;
+    }
 }
