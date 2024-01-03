@@ -52,8 +52,8 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: build-artifacts
-
-    - run: ls -R /home/runner/work/UMC-Mission7/UMC-Mission7
+        path: |
+          build/libs/*.jar
         
     - name: SCP JAR to EC2
       uses: appleboy/scp-action@master
