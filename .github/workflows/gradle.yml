@@ -41,7 +41,8 @@ jobs:
         name: build-artifacts
         path: |
           build/libs/*.jar
-        
+    - run: ls -R build/libs/*.jar
+      
   deploy:
     name: Deploy with SCP and Docker
     needs: build
